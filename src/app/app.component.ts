@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'demo-website';
+  constructor(private http: HttpClient) {
+    http.get<string>('/api/hello-world').subscribe(res => this.title = (res));
+  }
 }
