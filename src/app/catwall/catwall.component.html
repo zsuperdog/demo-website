@@ -1,1 +1,5 @@
 <p>catwall works!</p>
+@for (catImage of catImages; track catImage.id) {
+  <img [ngSrc]="catImage.url" alt="catImage" [height]="catImage.height" [width]="catImage.width">
+}
+
